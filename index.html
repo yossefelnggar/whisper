@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Whisper of the Woods</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600&family=Inter&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --dark: #0b1e1e;
+      --emerald: #2dfca0;
+      --gold: #f9d85e;
+    }
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: var(--dark);
+      color: white;
+    }
+    header {
+      text-align: center;
+      padding: 3rem 1rem 2rem;
+      background: radial-gradient(ellipse at center, #112 0%, #000 100%);
+    }
+    header h1 {
+      font-family: 'Cinzel', serif;
+      font-size: 2.5rem;
+      color: var(--gold);
+    }
+    header p {
+      font-size: 1.2rem;
+      max-width: 600px;
+      margin: 1rem auto;
+    }
+
+    .gallery {
+      display: flex;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      gap: 1rem;
+      padding: 2rem;
+    }
+    .gallery img {
+      width: 300px;
+      height: auto;
+      scroll-snap-align: start;
+      border-radius: 12px;
+      border: 2px solid var(--emerald);
+      transition: transform 0.3s;
+    }
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+
+    .form-section {
+      background: #111;
+      padding: 2rem;
+      max-width: 500px;
+      margin: 2rem auto;
+      border-radius: 16px;
+      border: 2px solid var(--emerald);
+    }
+    .form-section h2 {
+      text-align: center;
+      margin-bottom: 1rem;
+      color: var(--emerald);
+    }
+    .form-section input {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 8px;
+    }
+    .form-section button {
+      background: var(--emerald);
+      color: black;
+      border: none;
+      width: 100%;
+      padding: 1rem;
+      border-radius: 10px;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+    .form-section button:hover {
+      background: var(--gold);
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.8s ease;
+    }
+    .fade-up.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Whisper of the Woods</h1>
+  <p>اكتشف لعنة نهر فيلور... رواية سحرية تأخذك في مغامرة لا تُنسى داخل غابة تتنفس الغموض.</p>
+</header>
+
+<div class="gallery fade-up">
+  <img src="Whispering Arch of the Forest.png" alt="Book Scene 1" />
+  <img src="Whispers of a Moonlit Forest.png" alt="Book Scene 2" />
+  <img src="Greenfall Forest and the Enchanted Archway.png" alt="Book Scene 3" />
+</div>
+
+<div class="form-section fade-up">
+  <h2>اطلب نسختك الآن</h2>
+  <form>
+    <input type="text" placeholder="الاسم الكامل" required />
+    <input type="email" placeholder="البريد الإلكتروني" required />
+    <a href="https://www.paypal.com/ncp/payment/XV44VYNRJPHS8" target="_blank">
+      <button type="button">🛒 اشتري الآن - فقط 8 دولار</button>
+    </a>
+  </form>
+</div>
+
+<script>
+  // Scroll animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+      }
+    });
+  }, {
+    threshold: 0.2,
+  });
+
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
